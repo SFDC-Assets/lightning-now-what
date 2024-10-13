@@ -1,7 +1,7 @@
-sfdx force:org:create -f config/project-scratch-def.json -d 1 -s
-sfdx force:package:install --package 04t41000002Q3o0AAC -w 20
-sfdx force:source:push
-sfdx force:user:permset:assign -n workshop
-sfdx automig:load -d data
-sfdx force:user:password:generate
-sfdx force:org:open
+sf demoutil org create scratch -f config/project-scratch-def.json -d 5 -s -p lightning -e now.what
+sf package install -p 04t41000002Q3o0AAC -w 20
+sf project deploy start
+sf demoutil user password set -p salesforce1 -g User -l User
+sf org assign permset -n workshop
+sf automig load -d data
+sf org open
